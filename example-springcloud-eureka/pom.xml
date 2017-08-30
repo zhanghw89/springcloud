@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>example-springcloud-eureka</artifactId>
-    <packaging>pom</packaging>
+    <!--<packaging>pom</packaging>-->
 
 
 

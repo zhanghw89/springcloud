@@ -1,0 +1,23 @@
+#配置一些外部资源加载的属性
+#spring配置
+spring:
+  application:
+    name: config  #应用名config
+  profiles:
+    active: native # 配置服务器本地地址
+
+#server相关配置
+server:
+  port: 8000  #
+
+
+#eureka相关配置
+eureka:
+  client:
+    register-with-eureka: false #不需要注册到EurekaServer (注册中心) 上
+  instance:
+    non-secure-port: ${server.port:8888}
+    metadata-map:
+    instance-id: ${spring.application.name}:${random.value} #4
+  serviceUrl:
+        defaultZone: http://${eureka.host:localhost}:${eureka.port:8000}/eureka/

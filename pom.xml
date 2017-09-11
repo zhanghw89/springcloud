@@ -20,6 +20,7 @@
         <module>example-springcloud-consumer</module>
         <module>example-springcloud-provider</module>
         <module>example-springcloud-config</module>
+        <module>example-springcloud-provider-mybatis</module>
     </modules>
 
 

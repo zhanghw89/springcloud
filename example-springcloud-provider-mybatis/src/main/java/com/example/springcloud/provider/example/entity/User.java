@@ -1,9 +1,11 @@
 package com.example.springcloud.provider.example.entity;
 
+import com.example.springcloud.provider.mybatis.Office;
+
 /**
  * Created by shiwen on 2017/9/6.
  */
-public class User {
+public class User extends Office {
     private String name;
     private String id;
 

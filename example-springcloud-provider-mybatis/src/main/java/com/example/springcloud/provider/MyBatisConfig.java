@@ -1,6 +1,7 @@
 package com.example.springcloud.provider;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
+import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
@@ -67,6 +68,7 @@ public class MyBatisConfig {
         //下边两句仅仅用于*.xml文件，如果整个持久层操作不需要使用到xml文件的话（只用注解就可以搞定），则不加
         sfb.setTypeAliasesPackage(env.getProperty("mybatis.typeAliasesPackage"));
         sfb.setMapperLocations(new PathMatchingResourcePatternResolver().getResources(env.getProperty("mybatis.mapperLocations")));
+        sfb.setPlugins(new Interceptor[]{new MyBatisInterceptor()});
         return sfb.getObject();
     }
 }

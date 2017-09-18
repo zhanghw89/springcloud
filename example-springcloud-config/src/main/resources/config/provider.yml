@@ -1,2 +1,66 @@
-test:
-  message: hellowrld
+#druid相关配置
+druid:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://10.44.54.164:3306/icourt?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: zhanghw
+    password: 123456
+    #初始化连接数量，最大最小连接数
+    initialSize: 5
+    maxActive: 10
+    minIdle: 3
+    #获取连接等待超时的时间
+    maxWait: 600000
+    #超过时间限制是否回收
+    removeAbandoned: true
+    #超过时间限制多长
+    removeAbandonedTimeout: 180
+    #配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    timeBetweenEvictionRunsMillis: 600000
+    #配置一个连接在池中最小生存的时间，单位是毫秒
+    minEvictableIdleTimeMillis: 300000
+    #用来检测连接是否有效的sql，要求是一个查询语句
+    validationQuery: SELECT 1 FROM DUAL
+    #申请连接的时候检测
+    testWhileIdle: true
+    #申请连接时执行validationQuery检测连接是否有效，配置为true会降低性能
+    testOnBorrow: false
+    #归还连接时执行validationQuery检测连接是否有效，配置为true会降低性能
+    testOnReturn: false
+    #打开PSCache，并且指定每个连接上PSCache的大小
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 50
+    #属性类型是字符串，通过别名的方式配置扩展插件，常用的插件有：
+    #监控统计用的filter:stat 日志用的filter:log4j 防御SQL注入的filter:wall
+    filters: stat
+
+
+
+mybatis:
+    type-aliases-package: com.example.springcloud.provider.hello.mapper
+    mapper-locations: classpath:mapper/*.xml
+
+mapper:
+    mappers: com.example.springcloud.provider.hello.mapper
+    not-empty: false
+    identity: MYSQL
+
+#spring 配置
+spring:
+  application:
+    name: provider
+
+#服务器配置
+server:
+  port: 9000
+
+#eureka配置
+eureka:
+  serviceUrl:
+        defaultZone: http://localhost:8000/eureka/
+  instance:
+    hostname: localhost
+
+
+
+

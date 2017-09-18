@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<configuration scan="true" scanPeriod="3 seconds">
+    <!-- 动态加载配置文件 -->
+    <jmxConfigurator />
+
+
+    <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener"/>
+
+    <appender name="STDOUT"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>
+                %d{HH:mm:ss.SSS} [%thread] %-5level %logger{32} - %msg%n
+            </pattern>
+        </layout>
+    </appender>
+
+    <appender name="FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>logs/logFile.log</File>
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>
+                logs/logFile.%d{yyyy-MM-dd}.log.zip
+            </FileNamePattern>
+        </rollingPolicy>
+
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                %d{HH:mm:ss,SSS} [%thread] %-5level %logger{32} - %msg%n
+            </Pattern>
+        </layout>
+    </appender>
+
+    <!-- single start-->
+    <!--sql-->
+    <appender name="sqlAppender"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>logs/sql.log</File>
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>
+                <!--logs/single.%d{yyyy-MM-dd_HH-mm}.log.zip-->
+                logs/single.%d{yyyy-MM-dd}.log.zip
+            </FileNamePattern>
+        </rollingPolicy>
+
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                %d{HH:mm:ss,SSS} [%thread] %-5level %logger{32} - %msg%n
+            </Pattern>
+        </layout>
+    </appender>
+
+
+    <logger name="org.apache.ibatis"   additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="sqlAppender"/>
+    </logger>
+
+   <!-- <logger name="java.sql"  additivity="false" >
+        <level value="INFO"/>
+        <appender-ref ref="sqlAppender"/>
+    </logger>-->
+
+    <!-- mybatis sql -->
+
+
+    <root>
+        <appender-ref ref="STDOUT" value="INFO"/>
+        <appender-ref ref="FILE" value="INFO"/>
+    </root>
+
+    <!--<include file="/tmp/logback-demo.xml"/>-->
+
+
+
+
+
+
+</configuration>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/example-springcloud.iml" filepath="$PROJECT_DIR$/example-springcloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example-springcloud-config/example-springcloud-config.iml" filepath="$PROJECT_DIR$/example-springcloud-config/example-springcloud-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example-springcloud-consumer/example-springcloud-consumer.iml" filepath="$PROJECT_DIR$/example-springcloud-consumer/example-springcloud-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example-springcloud-eureka/example-springcloud-eureka.iml" filepath="$PROJECT_DIR$/example-springcloud-eureka/example-springcloud-eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example-springcloud-provider/example-springcloud-provider.iml" filepath="$PROJECT_DIR$/example-springcloud-provider/example-springcloud-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example-springcloud-provider-mybatis/example-springcloud-provider-mybatis.iml" filepath="$PROJECT_DIR$/example-springcloud-provider-mybatis/example-springcloud-provider-mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/springcloud.iml" filepath="$PROJECT_DIR$/.idea/springcloud.iml" />
+    </modules>
+  </component>
+</project>

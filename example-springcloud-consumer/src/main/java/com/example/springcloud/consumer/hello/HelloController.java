@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import java.net.URI;
-import java.nio.file.Paths;
 import java.util.List;
 
 /**
@@ -41,8 +39,9 @@ public class HelloController {
         }
         return null;
     }
+
     @RequestMapping
-    public String success(){
+    public String success() {
         return "success!";
     }
 

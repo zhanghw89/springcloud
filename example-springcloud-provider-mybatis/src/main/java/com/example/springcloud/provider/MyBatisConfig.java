@@ -68,7 +68,7 @@ public class MyBatisConfig {
         //下边两句仅仅用于*.xml文件，如果整个持久层操作不需要使用到xml文件的话（只用注解就可以搞定），则不加
         sfb.setTypeAliasesPackage(env.getProperty("mybatis.typeAliasesPackage"));
         sfb.setMapperLocations(new PathMatchingResourcePatternResolver().getResources(env.getProperty("mybatis.mapperLocations")));
-        sfb.setPlugins(new Interceptor[]{new MyBatisInterceptor()});
+        sfb.setPlugins(new Interceptor[]{new MyBatisInterceptor(), new com.github.pagehelper.PageInterceptor()});
         return sfb.getObject();
     }
 }

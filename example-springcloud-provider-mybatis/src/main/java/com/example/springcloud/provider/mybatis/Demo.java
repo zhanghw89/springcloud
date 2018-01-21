@@ -61,6 +61,8 @@ public class Demo {
 
         encode = "GBK";
         String s3 = getEncoding(str, encode);
+        String Test = "test123";
+        s3 = Test;
 
         return getFirstNotNullStr(s, s1, s2, s3);
     }

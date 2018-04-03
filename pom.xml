@@ -21,6 +21,9 @@
         <module>example-springcloud-provider</module>
         <module>example-springcloud-config</module>
         <module>example-springcloud-provider-mybatis</module>
+        <module>example-springcloud-demo</module>
+        <module>example-spring-cloud-test</module>
+        <module>example-springcloud-test</module>
     </modules>
 
 

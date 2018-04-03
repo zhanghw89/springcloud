@@ -8,18 +8,23 @@
         <outputRelativeToContentRoot value="true" />
         <module name="example-springcloud-config" />
         <module name="example-springcloud-consumer" />
+        <module name="example-springcloud-demo" />
         <module name="example-springcloud-eureka" />
         <module name="example-springcloud-provider" />
         <module name="example-springcloud-provider-mybatis" />
+        <module name="example-springcloud-test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
+      <module name="example-spring-cloud-test" target="1.8" />
       <module name="example-springcloud" target="1.8" />
       <module name="example-springcloud-config" target="1.8" />
       <module name="example-springcloud-consumer" target="1.8" />
+      <module name="example-springcloud-demo" target="1.8" />
       <module name="example-springcloud-eureka" target="1.8" />
       <module name="example-springcloud-provider" target="1.8" />
       <module name="example-springcloud-provider-mybatis" target="1.8" />
+      <module name="example-springcloud-test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <context:component-scan base-package="com.example.springcloud.demo.quzrtz" />
+
+    <!-- 创建任务 -->
+    <bean class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean" id="jobDetail">
+        <!-- 目标对象 -->
+        <property name="targetObject" ref="myJob"/>
+        <!-- 目标方法 -->
+        <property name="targetMethod" value="execute"/>
+    </bean>
+
+
+    <!-- 创建SimpleTrigger触发器 -->
+    <bean class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean" id="simpleTrigger">
+        <!-- 引用任务 -->
+        <property name="jobDetail" ref="jobDetail"/>
+        <!-- 指定循环时间，以秒为单位 -->
+        <property name="repeatInterval" value="10000"/>
+    </bean>
+
+    <!-- 创建CronTrigger触发器 -->
+    <bean class="org.springframework.scheduling.quartz.CronTriggerFactoryBean" id="cronTrigger">
+        <!-- 引用任务 -->
+        <property name="jobDetail" ref="jobDetail"/>
+        <!-- 指定Cron表达式 -->
+        <property name="cronExpression" value="*/5 * * * * ?"/>
+    </bean>
+
+    <!-- 创建调度器 -->
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean" id="stdScheduler" lazy-init="false">
+        <property name="triggers">
+            <list>
+                <!--<ref bean="simpleTrigger"/>-->
+                <ref bean="cronTrigger"/>
+            </list>
+        </property>
+    </bean>
+
+</beans>

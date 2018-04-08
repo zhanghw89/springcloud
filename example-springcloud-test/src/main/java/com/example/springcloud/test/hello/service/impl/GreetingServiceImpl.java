@@ -1,5 +1,6 @@
 package com.example.springcloud.test.hello.service.impl;
 
+import com.example.springcloud.test.hello.model.Person;
 import com.example.springcloud.test.hello.service.GreetingService;
 import org.springframework.stereotype.Service;
 
@@ -15,4 +16,13 @@ public class GreetingServiceImpl implements GreetingService{
     public String sayHello(String name) {
         return "hello,"+name;
     }
+
+    @Override
+    public Person addAge(Person user) {
+        Person result = user;
+        result.setAge(user.getAge()+1);
+        return result;
+    }
+
+
 }

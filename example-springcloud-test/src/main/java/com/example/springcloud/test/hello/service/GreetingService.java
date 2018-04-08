@@ -1,5 +1,6 @@
 package com.example.springcloud.test.hello.service;
 
+import com.example.springcloud.test.hello.model.Person;
 import org.springframework.stereotype.Service;
 
 /**
@@ -11,6 +12,9 @@ import org.springframework.stereotype.Service;
 public interface GreetingService {
 
     String sayHello(String name);
+
+
+    Person addAge(Person user);
 
 
 }
